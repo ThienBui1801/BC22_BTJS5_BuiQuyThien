@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <!-- Calculate Grab -->
+    <div class="container py-5">
+      <div class="form-group">
+        <label>Chọn hãng xe Taxi</label>
+        <input
+          type="text"
+          class="form-control"
+          id="brandTaxi"
+          placeholder="GrabCar, GrabSUV, GrabBlack"
+        />
+      </div>
+      <button id="btn-brand" class="btn btn-warning">Chọn hãng xe</button>
+      <table class="my-5">
+        <thead class="text-center">
+          <tr>
+            <th colspan="4" style="color: chocolate; font-size: 24px">
+              CHI TIẾT HÓA ĐƠN
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CHI TIẾT</td>
+            <td>SỬ DỤNG</td>
+            <td>ĐƠN GIÁ</td>
+            <td>THÀNH TIỀN</td>
+          </tr>
+          <tr>
+            <td>KM ĐẦU TIÊN</td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="first-km"
+                placeholder="Số km đã đi"
+                max="1"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="first-price"
+                placeholder="Đơn giá"
+              />
+            </td>
+            <td id="print-first-km"></td>
+          </tr>
+          <tr>
+            <td>Từ 1km đến 19km</td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="second-km"
+                placeholder="Số km đã đi"
+                min="2"
+                max="19"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="second-price"
+                placeholder="Đơn giá"
+              />
+            </td>
+            <td id="print-second-km"></td>
+          </tr>
+          <tr>
+            <td>Từ 19km trở lên</td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="third-km"
+                placeholder="Số km đã đi"
+                min="20"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="third-price"
+                placeholder="Đơn giá"
+              />
+            </td>
+            <td id="print-third-km"></td>
+          </tr>
+          <tr>
+            <td>Thời gian chờ</td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="time-wait"
+                placeholder="Thời gian chờ"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                id="wait-price"
+                placeholder="Đơn giá"
+              />
+            </td>
+            <td id="print-wait"></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button id="print-calc" class="btn btn-success">Tính tiền</button>
+            </td>
+            <td colspan="1" id="price-sum"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Income Tax -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Thu nhập một năm</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Họ tên</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tax-user"
+              placeholder="Tên bạn là gì?"
+            />
+          </div>
+          <div class="form-group">
+            <label>Nhập tổng thu nhập</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tax-value"
+              placeholder="Số tiền"
+            />
+          </div>
+          <div class="form-group">
+            <label>Số người phụ thuộc</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tax-person"
+              placeholder="Số người phụ thuộc"
+            />
+          </div>
+          <button id="btn-tax" class="btn btn-success">Click Me!</button>
+        </div>
+        <div id="print-tax" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Electric -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Nhập số điện</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Nhập số điện</label>
+            <input
+              type="text"
+              class="form-control"
+              id="number-Elec"
+              placeholder="Số điện"
+            />
+          </div>
+          <button id="btn-elec" class="btn btn-danger">Click Me!</button>
+        </div>
+        <div id="print-elec" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Calculate Cable -->
+    <div class="container pt-5">
+      <div class="card">
+        <div class="card-header">Tính tiền cáp hộ gia đình</div>
+        <div class="card-body">
+          <div class="cable__house">
+            <div class="house">
+              <div class="form-group">
+                <label>Dành cho hộ gia đình</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="code__house"
+                  aria-describedby="helpId"
+                  placeholder="Mã khách hàng"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="code__house-bank"
+                  aria-describedby="helpId"
+                  placeholder="Số tài khoản"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="code__house-regis"
+                  aria-describedby="helpId"
+                  placeholder="Số hộ gia đình đăng ký"
+                />
+              </div>
+              <div class="price__house d-flex justify-content-between">
+                <div class="form-group mx-2" style="width: 33.3333%">
+                  <label>Phí xử lý hóa đơn (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="house-check"
+                    value="4.5"
+                  />
+                </div>
+                <div class="form-group mx-2" style="width: 33.3333%">
+                  <label>Phí dịch vụ cơ bản (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="house-service"
+                    value="20.5"
+                  />
+                </div>
+                <div class="form-group mx-2" style="width: 33.3333%">
+                  <label>Phí thuê kênh cao cấp (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="house-channel"
+                    value="7.5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="btn-house" class="btn btn-danger">Tính tiền.</button>
+        </div>
+        <div id="print-infor-house" class="card-footer text-muted"></div>
+      </div>
+      <div class="card my-5">
+        <div class="card-header">Tính tiền cáp doanh nghiệp</div>
+        <div class="card-body">
+          <div class="cable__company">
+            <div class="company my-3">
+              <div class="form-group">
+                <label>Dành cho doanh nghiệp</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="code__company"
+                  aria-describedby="helpId"
+                  placeholder="Mã doanh nghiệp"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="code__company-bank"
+                  aria-describedby="helpId"
+                  placeholder="Số tài khoản doanh nghiệp"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="code__company-regis"
+                  aria-describedby="helpId"
+                  placeholder="Số doanh nghiệp đăng ký"
+                />
+              </div>
+              <div class="price__company d-flex justify-content-between">
+                <div class="form-group mx-2" style="width: 25%">
+                  <label>Phí xử lý hóa đơn (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-check"
+                    value="15"
+                  />
+                </div>
+                <div class="form-group mx-2" style="width: 25%">
+                  <label>Phí dịch vụ 10 kênh đầu (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-service"
+                    value="75"
+                  />
+                </div>
+                <div class="form-group mx-2" style="width: 25%">
+                  <label>Giá $5 cho kênh tiếp theo (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-service-plus"
+                    value="1"
+                  />
+                </div>
+                <div class="form-group mx-2" style="width: 25%">
+                  <label>Phí thuê kênh cao cấp (USD)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-channel"
+                    value="50"
+                  />
+                </div>
+              </div>
+              <button id="btn-company" class="btn btn-warning">Tính tiền.</button>
+            </div>
+          </div>
+        </div>
+        <div id="print-infor-company" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
