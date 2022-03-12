@@ -100,6 +100,86 @@ document.getElementById('print-calc').onclick = function () {
   AllKmPrice();
 }
 
+// 2.
+/**
+ * 
+ */
+
+// id="basic-name"
+// id="basic-point"
+// id="area"
+// id="area-point"
+// id="btn-student"
+// id="student"
+// id="student-point"
+// id="btn-student"
+// id="render-admission"
+
+// id="point-math"
+// id="point-phisycal"
+// id="point-chemistry" btn-render
+
+
+const btnRender = document.querySelector('#btn-render');
+
+document.getElementById('btn-area').onclick = function () {
+  const area = document.getElementById('area').value;
+  if (area === 'A') {
+    document.getElementById('area-point').value = '2';
+  } else if (area === 'B') {
+    document.getElementById('area-point').value = '1';
+  } else if (area === 'C') {
+    document.getElementById('area-point').value = '0.5';
+  } else if (area === 'X') {
+    document.getElementById('area-point').value = '0';
+  }
+}
+
+document.getElementById('btn-student').onclick = function () {
+  const student = document.getElementById('student').value;
+  if (student === '1') {
+    document.getElementById('student-point').value = '2.5';
+  } else if (student === '2') {
+    document.getElementById('student-point').value = '1.5';
+  } else if (student === '3') {
+    document.getElementById('student-point').value = '1';
+  } else if (student === '0') {
+    document.getElementById('student-point').value = '0';
+  }
+}
+
+function calcPoint() {
+  const name = document.getElementById('basic-name').value;
+  const point = document.getElementById('basic-point').value * 1;
+
+  const math = document.getElementById('point-math').value * 1;
+  const physical = document.getElementById('point-physical').value * 1;
+  const chemistry = document.getElementById('point-chemistry').value * 1;
+
+  const areaPoint = document.getElementById('area-point').value * 1;
+  const studentPoint = document.getElementById('student-point').value * 1;
+
+  const renderHtml = document.querySelector('#render-admission');
+
+  const sumPoint = math + physical + chemistry + areaPoint + studentPoint;
+
+  let result;
+
+  if (sumPoint > point) {
+    result = `Bạn đủ điểm đậu`;
+  } else {
+    result = `Hẹn gặp lại bạn vào năm sau`;
+  }
+
+  renderHtml.innerHTML = `
+  <p>Tổng điểm ${name}: ${sumPoint}</p>
+  <p>${result}</p>
+  `
+}
+
+btnRender.addEventListener('click', calcPoint)
+
+
 // 3. Tính tiền thuế
 /**
  *  1. Tạo hàm tính toán tiền thuế phải trả & biến lưu giá trị
