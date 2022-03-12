@@ -102,23 +102,13 @@ document.getElementById('print-calc').onclick = function () {
 
 // 2.
 /**
- * 
+ *  1. Tạo biến lưu dữ liệu điểm từng môn
+ *  2. Xử lý
+ *    - Tạo ô lấy điểm khu vực
+ *    - Tạo ô lấy điểm đối tượng
+ *    - Tạo hàm xử lý tính điểm và so sánh điểm chuẩn vs điểm thí sinh
+ *  3. Render HTML kết quả
  */
-
-// id="basic-name"
-// id="basic-point"
-// id="area"
-// id="area-point"
-// id="btn-student"
-// id="student"
-// id="student-point"
-// id="btn-student"
-// id="render-admission"
-
-// id="point-math"
-// id="point-phisycal"
-// id="point-chemistry" btn-render
-
 
 const btnRender = document.querySelector('#btn-render');
 
