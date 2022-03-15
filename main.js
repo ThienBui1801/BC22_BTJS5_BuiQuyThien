@@ -78,7 +78,7 @@ function AllKmPrice() {
     sum1 = km1 * price1;
     printSum1.innerHTML = changeMoney.format(sum1);
   } else if (1 < km1) {
-    printSum1.innerHTML = `Số Km không hợp lệ`;
+    printSum1.innerHTML = `Invalid data`;
   }
 
   if (1 < km2 && km2 <= 19) {
@@ -88,7 +88,7 @@ function AllKmPrice() {
     sum2 = km2 * price2;
     printSum2.innerHTML = changeMoney.format(sum2);
   } else if (km2 > 19) {
-    printSum2.innerHTML = `Số Km không hợp lệ`;
+    printSum2.innerHTML = `Invalid data`;
   }
 
   if (19 < km3 && km3 !== 0) {
@@ -98,7 +98,7 @@ function AllKmPrice() {
     sum3 = km3 * price3;
     printSum3.innerHTML = changeMoney.format(sum3);
   } else if (km3 <= 19) {
-    printSum3.innerHTML = `Số Km không hợp lệ`;
+    printSum3.innerHTML = `Invalid data`;
   }
 
   if (waitTime >= 3) {
