@@ -84,9 +84,9 @@ function AllKmPrice() {
     sum3 = (km1 * price1) + ((km1 * price1) + (km2 - km1) * price2) + (km3 - 19) * price3;
     printSum3.innerHTML = changeMoney.format(sum3);
   }
-
-  if (waitTime / 3) {
-    sum4 = waitTime * priceWait;
+  
+  if (waitTime % 3 === 0) {
+    sum4 = (waitTime / 3) * priceWait;
     printSumW.innerHTML = changeMoney.format(sum4);
   }
 
