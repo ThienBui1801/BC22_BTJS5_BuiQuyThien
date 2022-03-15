@@ -46,6 +46,10 @@ document.getElementById('btn-brand').onclick = function () {
   }
 }
 
+document.getElementById('print-calc').onclick = function () {
+  AllKmPrice();
+}
+
 function AllKmPrice() {
   const km1 = document.getElementById('first-km').value * 1;
   const price1 = document.getElementById('first-price').value * 1;
@@ -70,23 +74,35 @@ function AllKmPrice() {
   let sum4;
   let sumAll;
 
-  if (1 >= km1) {
+  if (0 < km1 && km1 <= 1) {
     sum1 = km1 * price1;
     printSum1.innerHTML = changeMoney.format(sum1);
+  } else if (1 < km1) {
+    printSum1.innerHTML = `Số Km không hợp lệ`;
   }
 
-  if (1 < km2 <= 19) {
-    sum2 = (km1 * price1) + (km2 - km1) * price2;
+  if (1 < km2 && km2 <= 19) {
+    sum2 = (km2 - 1) * price2;
     printSum2.innerHTML = changeMoney.format(sum2);
+  } else if (km2 === 0) {
+    sum2 = km2 * price2;
+    printSum2.innerHTML = changeMoney.format(sum2);
+  } else if (km2 > 19) {
+    printSum2.innerHTML = `Số Km không hợp lệ`;
   }
 
-  if (19 < km3) {
-    sum3 = (km1 * price1) + ((km1 * price1) + (km2 - km1) * price2) + (km3 - 19) * price3;
+  if (19 < km3 && km3 !== 0) {
+    sum3 = (km3 - 19) * price3;
     printSum3.innerHTML = changeMoney.format(sum3);
+  } else if (km3 === 0) {
+    sum3 = km3 * price3;
+    printSum3.innerHTML = changeMoney.format(sum3);
+  } else if (km3 <= 19) {
+    printSum3.innerHTML = `Số Km không hợp lệ`;
   }
-  
-  if (waitTime % 3 === 0) {
-    sum4 = (waitTime / 3) * priceWait;
+
+  if (waitTime >= 3) {
+    sum4 = Math.floor(waitTime / 3) * priceWait;
     printSumW.innerHTML = changeMoney.format(sum4);
   }
 
@@ -96,9 +112,7 @@ function AllKmPrice() {
 
 };
 
-document.getElementById('print-calc').onclick = function () {
-  AllKmPrice();
-}
+
 
 // 2.
 /**
